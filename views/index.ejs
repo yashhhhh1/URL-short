@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Url shortner</title>
+  </head>
+  <body>
+    <h1>URL shortner</h1>
+
+    <% if (locals.error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/" method="post">
+      <input type="url" name="url" id="url" placeholder="url here..." />
+      <input type="submit" value="create url" />
+    </form>
+
+    <div class="short-url">
+      <% if (locals.short_url) { %>
+      <a href="<%= short_url %>"><%= short_url %> </a>
+      <% } %>
+    </div>
+
+    <% if (locals.urls) { %>
+      <table style="border: 10px;">
+        <thead>
+          <th>original url</th>
+          <th>short-url</th>
+        </thead>
+        <tbody>
+          <% urls.forEach((urls , index) => { %>
+           <tr>
+              <td><%= index + 1 %></td>
+              <td><%= urls.url %></td>
+              <td><%= urls.shortId %></td>
+           </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+   
+  </body>
+</html>
