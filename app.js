@@ -43,7 +43,7 @@ app.post('/', async (req, res, next) => {
     const urlExists = await ShortUrl.findOne({ url })
     // url exist then show th main page 
     if (urlExists) {
-      res.render('index', {short_url: `${req.headers.host}/${urlExists.shortId}`,})
+      res.render('index', {short_url: `${urlExists.shortId}`,})
       return
     }
     // url is new then add in the db and genrate the new shortid provided url 
