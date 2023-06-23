@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js  -e js,hbs,ejs",
+    "dev": "node app.js  -e js,hbs,ejs",
     "build": "npm i"
   },
   "keywords": [],
@@ -17,5 +17,8 @@
     "http-errors": "^2.0.0",
     "mongoose": "^7.1.0",
     "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
