@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const shortId = require('shortid')
 const createHttpError = require('http-errors')
@@ -12,7 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // connection to db
 mongoose
-  .connect('mongodb://127.0.0.1:27017', {
+  .connect(process.env.MONGO_CONNECTION, {
     dbName: 'url-shortner',
     useNewUrlParser: true,
     useUnifiedTopology: true,
